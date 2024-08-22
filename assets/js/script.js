@@ -87,6 +87,9 @@ function getForecast(lat, long) {
      const forecastCards = document.getElementById('forecast-cards');
      const cardContainer = document.createElement('div');
 
+    // Styling cardContainer
+    cardContainer.setAttribute('class', 'd-flex flex-column flex-sm-row flex-wrap p-2 justify-content-evenly');
+
      const divHeader = document.createElement('h4');
      divHeader.textContent = '5 Day Forecast';
      divHeader.setAttribute('class', 'm-2');
@@ -107,7 +110,7 @@ function getForecast(lat, long) {
         let date = (dayjs(data.list[index].dt_txt).add(data.city.timezone, 'second')).format('MM/DD/YYYY');
 
         const forecastCard = document.createElement('div');
-        forecastCard.setAttribute('class', 'card');
+        forecastCard.setAttribute('class', 'card p-1 custom-card');
 
         const forecastDate = document.createElement('h5');
         forecastDate.setAttribute('class', 'card-title');
