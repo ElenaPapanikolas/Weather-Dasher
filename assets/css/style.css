@@ -1,0 +1,20 @@
+:root {
+
+}
+
+body {
+    font-family: "Exo", sans-serif;
+}
+
+header {
+    background-image: linear-gradient(to right, navy , lightblue);
+    color: whitesmoke;
+}
+
+h1, h2 {
+    font-family: "Bangers", system-ui;
+}
+
+.custom-button {
+    background-color: lightblue;
+}

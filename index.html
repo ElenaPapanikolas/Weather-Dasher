@@ -13,19 +13,32 @@
 </head>
 
 <body>
-    <header>
-        <h1 class="text-primary">Weather Dasher</h1>
+    <header class="d-flex justify-content-center m-4 p-4">
+        <h1>Weather Dasher</h1>
     </header>
-    <div class="flex-row align-center justify-center min-100-vh bg-primary">
-        <div class="col-12 col-md-9 flex-column align-center bg-light p-5">
-            <h2>Search for a City:</h2>
-            <form id="search-form" class="form w-100">
-                <input id="search-input" class="form-input w-100" type="text" placeholder="Search!">
-                <button class="btn btn-info btn-block">Search</button>
-            </form>
+    <container class="d-flex row">
+        <div class="col-sm-12 col-md-4 align-center justify-center">
+            <div class="flex-column align-center p-5">
+                <h2>Search for a City:</h2>
+                <form id="search-form" class="form w-100">
+                    <input id="search-input" class="form-input w-100" type="text" placeholder="Search!">
+                    <button class="custom-button mt-3">Search</button>
+                </form>
+            </div>
         </div>
-    </div>
+        <div class="col-sm-12 col-md-8 p-5">
+            <div id="current-weather" class="border">
+                <p>Testing testing 123</p>
+            </div>
+            <div id="forcast-cards" class="border">
+                <p>Another one</p>
+            </div>
+        </div>
 
+
+
+
+    </container>
     <script src="./assets/js/script.js"></script>
 </body>
 
