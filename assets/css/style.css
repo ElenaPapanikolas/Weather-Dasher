@@ -1,5 +1,5 @@
 :root {
-
+    -- : ;
 }
 
 body {
@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-image: linear-gradient(to right, navy , lightblue);
+    background-image: linear-gradient(to right, lightgreen , green);
     color: whitesmoke;
 }
 
@@ -16,5 +16,5 @@ h1, h2 {
 }
 
 .custom-button {
-    background-color: lightblue;
+    background-color: lightgreen;
 }
