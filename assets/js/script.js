@@ -28,7 +28,7 @@ function getCurrentWeather(lat, long) {
       .then(data => {
         // Getting access to current-weather div in html
         const currentWeatherDiv = document.getElementById('current-weather');
-        
+
         // Add a border to currentWeatherDiv
         currentWeatherDiv.setAttribute('class', 'border rounded');
 
@@ -88,7 +88,6 @@ function getForecast(lat, long) {
     return response.json();
   })
   .then(data => {
-    console.log(data);
     // Get access to forecast card div
      const forecastCards = document.getElementById('forecast-cards');
      // Clears forecast card div to avoid repeats
@@ -220,6 +219,7 @@ searchButton.addEventListener('click', function(event){
 document.getElementById('searched-cities').addEventListener('click', function(event) {
     if (event.target.classList.contains('rounded')) {
         const cityName = event.target.textContent;
+        // Get latitude and longitude for clicked on city and fetch all data
         getLatLong(cityName);
     }
 });
