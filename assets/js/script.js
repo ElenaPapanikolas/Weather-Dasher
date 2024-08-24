@@ -28,6 +28,9 @@ function getCurrentWeather(lat, long) {
       .then(data => {
         // Getting access to current-weather div in html
         const currentWeatherDiv = document.getElementById('current-weather');
+        
+        // Add a border to currentWeatherDiv
+        currentWeatherDiv.setAttribute('class', 'border rounded');
 
         // Empties currentWeatherDiv to avoid repeating data
         currentWeatherDiv.innerHTML = '';
@@ -139,7 +142,7 @@ function getForecast(lat, long) {
         const humidity = document.createElement('p');
         humidity.textContent = `Humidity: ${data.list[index].main.humidity}%`
 
-        
+        // Append card elements to card and card to cardContainer
         forecastCard.appendChild(forecastDate);
         forecastCard.appendChild(cardBody);
 
@@ -187,6 +190,9 @@ function renderSearchedCities() {
     for (city of searched) {
         const cityBtn = document.createElement('button');
         cityBtn.textContent = city;
+        // Styling for city buttons
+        cityBtn.setAttribute('class', 'm-1 p-2 rounded');
+        cityBtn.setAttribute('style', 'background-color: lightblue');
         searchedDiv.appendChild(cityBtn);
     }
 }
@@ -208,6 +214,14 @@ searchButton.addEventListener('click', function(event){
     console.log(searchedCities);
     // Clear input field
     document.getElementById('search-input').value = '';
+});
+
+// Event listener for buttons in searched-cities div
+document.getElementById('searched-cities').addEventListener('click', function(event) {
+    if (event.target.classList.contains('rounded')) {
+        const cityName = event.target.textContent;
+        getLatLong(cityName);
+    }
 });
 
 // Call this function on page load to show recently searched cities
