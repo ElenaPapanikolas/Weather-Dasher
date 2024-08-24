@@ -3,6 +3,8 @@ const APIKey = "d3ab39630453b1f69262248a9ecf6aca";
 // Getting access to search button
 const searchButton = document.getElementById('search-button');
 
+// Creating an array for searched cities to store in local storage
+let searchedCities = JSON.parse(localStorage.getItem('searchedCities')) || [];
 
 // Base URL for 5 day forecast
 // https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
@@ -15,6 +17,7 @@ const searchButton = document.getElementById('search-button');
 
 // Function to get current weather data
 function getCurrentWeather(lat, long) {
+    renderSearchedCities();
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${APIKey}&units=imperial`)
     .then(response => {
         if (!response.ok) {
@@ -85,6 +88,9 @@ function getForecast(lat, long) {
     console.log(data);
     // Get access to forecast card div
      const forecastCards = document.getElementById('forecast-cards');
+     // Clears forecast card div to avoid repeats
+     forecastCards.innerHTML = '';
+
      const cardContainer = document.createElement('div');
 
     // Styling cardContainer
@@ -144,9 +150,6 @@ function getForecast(lat, long) {
    
         cardContainer.appendChild(forecastCard);
     }
-
-    
-   
   })
   .catch(error => {
     console.error('There was a problem with your fetch operation:', error);
@@ -172,7 +175,21 @@ function getLatLong(searchBox) {
   });
 }
 
+// Function to render previously searched cities as buttons
+function renderSearchedCities() {
+    // Read cities saved in Local Storage
+    const searched = JSON.parse(localStorage.getItem('searchedCities'));
+    // Get access to searched-cities div
+    const searchedDiv = document.getElementById('searched-cities');
+    // Clear out searchedDiv to avoid duplicates
+    searchedDiv.innerHTML = '';
 
+    for (city of searched) {
+        const cityBtn = document.createElement('button');
+        cityBtn.textContent = city;
+        searchedDiv.appendChild(cityBtn);
+    }
+}
 
 // Event listeners
 searchButton.addEventListener('click', function(event){
@@ -180,4 +197,18 @@ searchButton.addEventListener('click', function(event){
     // Getting access to search box
     const searchBox = document.getElementById('search-input').value.trim();
     getLatLong(searchBox);
+
+    // Checks to see if searched city is already present in storage array
+    if (!searchedCities.includes(searchBox)) {
+        searchedCities.push(searchBox);
+    }
+
+    // Adds searched city to searchedCities array and sets in local storage
+    localStorage.setItem('searchedCities', JSON.stringify(searchedCities));
+    console.log(searchedCities);
+    // Clear input field
+    document.getElementById('search-input').value = '';
 });
+
+// Call this function on page load to show recently searched cities
+renderSearchedCities();
