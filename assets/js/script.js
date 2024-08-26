@@ -1,3 +1,4 @@
+// API key
 const APIKey = "d3ab39630453b1f69262248a9ecf6aca";
 
 // Getting access to search button
@@ -5,15 +6,6 @@ const searchButton = document.getElementById('search-button');
 
 // Creating an array for searched cities to store in local storage
 let searchedCities = JSON.parse(localStorage.getItem('searchedCities')) || [];
-
-// Base URL for 5 day forecast
-// https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
-
-// URL for user entered city
-// https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
-
-// URL for current weather
-// https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
 
 // Function to get current weather data
 function getCurrentWeather(lat, long) {
@@ -115,10 +107,10 @@ function getForecast(lat, long) {
     // Finds all midday indexes
     for ( i = 0; i <5; i ++) {
         let index = i*8 + midday;
-        let date = (dayjs(data.list[index].dt_txt).add(data.city.timezone, 'second')).format('MM/DD/YYYY');
 
         const forecastCard = document.createElement('div');
-        forecastCard.setAttribute('class', 'card p-1 custom-card');
+        forecastCard.setAttribute('class', 'card p-1');
+        forecastCard.setAttribute('style', 'background-color: lightblue');
 
         const forecastDate = document.createElement('h5');
         forecastDate.setAttribute('class', 'card-title');
@@ -210,7 +202,7 @@ searchButton.addEventListener('click', function(event){
 
     // Adds searched city to searchedCities array and sets in local storage
     localStorage.setItem('searchedCities', JSON.stringify(searchedCities));
-    console.log(searchedCities);
+ 
     // Clear input field
     document.getElementById('search-input').value = '';
 });

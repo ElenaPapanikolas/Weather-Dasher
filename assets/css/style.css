@@ -4,7 +4,6 @@ body {
 
 header {
     background-image: linear-gradient(to right, lightgreen , green);
-    color: whitesmoke;
 }
 
 h1, h2 {
@@ -13,8 +12,4 @@ h1, h2 {
 
 .custom-button {
     background-color: lightgreen;
-}
-
-.custom-card {
-    background-color: lightblue;
 }
