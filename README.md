@@ -21,7 +21,7 @@ Installation instructions for application:
 N/A
 
 ## Usage
-[Click here for deployed application]()
+[Click here for deployed application](https://elenapapanikolas.github.io/Weather-Dasher/)
 
 Navigate to the link above for the deployed application. 
 The user is presented with the Weather Dashboard application. There is a search bar and search button. Simply enter the city name for which you'd like to know the weather and click the search button. The current weather will be rendered, along with a five day forecast rendered underneath. The data shows the city name, date, temperature, wind, humidity, and a weather icon, visually depicting the conditions. Every city you search for is saved with local storage and rendered to a list below the search bar. Clicking on these saved searches will automatically search the weather conditions for that city with just a click.
