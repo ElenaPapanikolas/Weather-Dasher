@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
-This is a weather dashboard application that will run in the browser and feature dynamically generated HTML and CSS. It also uses a third party API, called OpenWeather, for all weather data. This application allows you to search by city and retrieves the weather data based on latitude and longitude, thanks to a JavaScript function that retrieves that information. The user doesn't have to know the latitude and longitude, only the city name, and the function does the rest.
+This is a weather dashboard application that will run in the browser and feature dynamically generated HTML and CSS. It also uses a server-side API, called OpenWeather, for all weather data. This application allows you to search by city and retrieves the weather data based on latitude and longitude, thanks to a JavaScript function that retrieves that information. The user doesn't have to know the latitude and longitude, only the city name, and the function does the rest.
 
 All of the forecast and current weather data is dynamically generated so the user can truly customize their very own weather dashboard.
 
